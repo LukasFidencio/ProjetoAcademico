@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define tamanho 8
+
+typedef struct tipo_pilha{
+	int dados[tamanho];
+	int fim;
+	int ini;
+}
+tipo_pilha;
+
+tipo_pilha pilha1;
+tipo_pilha pilha2;
+
+void empilha(int elemento, tipo_pilha *p){
+	if(p->fim == tamanho){
+		printf("Pilha cheia.\n");
+		system("pause");
+	}
+	else
+	{
+		p->dados[p->fim] = elemento;
+		p->fim++;
+
+	}
+}
+
+void inverte(tipo_pilha *p1, tipo_pilha *p2){
+	int i;	
+	int j;
+	int k;
+		for(i=0; i<tamanho; i++){
+			printf("%i  ",p1->dados[i]);
+			p2->dados[p2->fim] = p1->dados[p1->fim-1];
+			p1->fim--;
+			p2->fim++;
+	    }
+	    
+		printf("\n\n");
+		for(j=0; j<tamanho; j++){
+	           printf("%i  ",p2->dados[j]);}
+	           
+	  	      
+	   p1->fim = tamanho;	   
+	   for(k=0; k<tamanho; k++){  
+	        p1->dados[p1->fim-1] = 0;
+			p1->fim--;  
+        }
+      
+    }
+    	
+    	
+int main(){
+	pilha1.fim = 0;
+	pilha1.ini = 0;
+    pilha2.fim = 0;
+	pilha2.ini = 0;
+	
+	printf("Bem vindo a pilha do meu RA!\nMeu Ra e 1885989-5.\n\n");
+	printf("Bora empilhar meu RA?\n\n");
+	system("pause");
+	system("cls");
+	
+	printf("Empilhando o numero 1.\n");
+	empilha(1, &pilha1);
+	
+	printf("Empilhando o numero 8.\n");
+	empilha(8, &pilha1);
+	
+	printf("Empilhando o numero 8.\n");
+	empilha(8, &pilha1);
+	
+	printf("Empilhando o numero 5.\n");
+	empilha(5, &pilha1);
+	
+	printf("Empilhando o numero 9.\n");
+	empilha(9, &pilha1);
+	
+    printf("Empilhando o numero 8.\n");
+	empilha(8, &pilha1);
+	
+	printf("Empilhando o numero 9.\n");
+	empilha(9, &pilha1);
+	
+	printf("Empilhando o numero 5.\n\n");
+	empilha(5, &pilha1);
+	
+	printf("Numeros empilhados, bora inverter tudo?\n\n");
+	system("pause");
+	system("cls");
+	
+	inverte(&pilha1, &pilha2);
+	
+	
+	printf("\n\nDeu certo!\n\n");
+    system("pause");
+    
+	}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
